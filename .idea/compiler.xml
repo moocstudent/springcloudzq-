@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="data-service" />
         <module name="eureka-server" />
+        <module name="util-boot" />
       </profile>
     </annotationProcessing>
   </component>

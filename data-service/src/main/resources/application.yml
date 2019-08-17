@@ -1,8 +1,11 @@
 
+server:
+  port: 8090
 spring:
   application:
     name: data-service
 eureka:
   client:
+    eureka-server-port: 8760
     service-url:
-      defaultZone: http://localhost:8760/eureka/
+      defaultZone: http://localhost:${eureka.client.eureka-server-port}/eureka/

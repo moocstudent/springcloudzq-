@@ -60,6 +60,8 @@
     <modules>
         <module>eureka-server</module>
         <module>data-service</module>
+        <module>util-boot</module>
+
     </modules>
 
 </project>
