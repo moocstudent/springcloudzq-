@@ -1,6 +1,6 @@
 
 server:
-  port: 8090
+  port: 8001
 spring:
   application:
     name: data-service

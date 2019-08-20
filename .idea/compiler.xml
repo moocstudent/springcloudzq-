@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="data-service" />
         <module name="eureka-server" />
+        <module name="third-part-index-data-proj" />
         <module name="util-boot" />
       </profile>
     </annotationProcessing>
