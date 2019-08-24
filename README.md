@@ -16,3 +16,5 @@ List<Map> temp= restTemplate.getForObject("http://127.0.0.1:8090/indexes/codes.j
 
 1. 改善了PortUtil <br>
 
+redis 获取数据
+主要看 indexData 的 控制 服务 层.

@@ -9,9 +9,9 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Index implements Serializable {
+public class IndexData implements Serializable {
 
-    private String code;
-    private String name;
+	private String date;
+	private float closePoint;
 
 }
