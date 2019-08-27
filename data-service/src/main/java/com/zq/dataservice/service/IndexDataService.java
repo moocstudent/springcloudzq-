@@ -5,6 +5,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zq.dataservice.bean.Index;
 import com.zq.dataservice.bean.IndexData;
+import com.zq.dataservice.util.MapListUtil;
 import com.zq.dataservice.util.SpringContextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -25,8 +26,6 @@ public class IndexDataService {
     private Map<String,List<IndexData>> indexDatas = new HashMap<>();
     @Autowired
     private RestTemplate restTemplate;
-    @Autowired
-    private RedisService redisService;
 
     @HystrixCommand(fallbackMethod = "thirdPartNotConnected")
     public List<IndexData> fresh(String code){
@@ -39,9 +38,9 @@ public class IndexDataService {
     @HystrixCommand(fallbackMethod = "thirdPartNotConnected")
     @CachePut(key = "'indexData-code-'+#p0")
     public List<IndexData> fetchIndexesFromThirdPart(String code){
-        List<IndexData> tempList = restTemplate.getForObject("http://127.0.0.1:8090/indexes/"+code+".json", List.class);
+        List<Map> tempList = restTemplate.getForObject("http://127.0.0.1:8090/indexes/"+code+".json", List.class);
         System.out.println("tempList:"+tempList);
-        return tempList;
+        return MapListUtil.map2IndexData(tempList);
     }
     @CacheEvict(key = "'indexData-code-'+#p0") //清空缓存
     public void remove(String code){

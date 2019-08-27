@@ -16,6 +16,8 @@ import java.util.concurrent.TimeoutException;
  * 默认defaultPort 如果启动时后缀跟着 port=端口号 则首先采用port=的端口号
  */
 public class PortUtil {
+
+    //设置端口号
     public static int setPort(String[] args, int second, String message, int defaultPort) {
 
         int port = 0;
@@ -61,4 +63,62 @@ public class PortUtil {
         }
         return port;
     }
+
+
+    final static int defaultRedisPort = 6379;
+    final static int defaultEurekaPort = 8760;
+
+    //检测端口运行 参数
+    public static void checkPort(int somePort){
+        String serverName = "";
+        switch (somePort){
+            case defaultRedisPort:serverName="redis";break;
+            case defaultEurekaPort:serverName="eureka";break;
+        }
+        if (NetUtil.isUsableLocalPort(somePort)) {
+            System.err.printf("检查到端口%d 未启用，判断"+serverName+"服务器没有启动，本服务无法使用，故退出%n", somePort);
+            System.exit(1);
+        }else{
+            System.out.printf("检查到端口%d已启用，"+serverName+"服务运行中.", somePort);
+        }
+    }
+
+    //判定default端口 其中一个服务没启动, 就退出系统systemExit
+    public static void checkPort(){
+        String serverName = "";
+        boolean systemExit = false;
+
+        boolean unUsableRedis = NetUtil.isUsableLocalPort(defaultRedisPort);
+        boolean unUsableEureka = NetUtil.isUsableLocalPort(defaultEurekaPort);
+
+        //判定redis没启动
+        if(unUsableRedis){
+            serverName="redis";
+            System.err.printf("检查到端口%d 未启用，判断"+serverName+"服务器没有启动，本服务无法使用，故退出%n", defaultRedisPort);
+            systemExit = true;
+
+        }else{
+            serverName="redis";
+            System.out.printf("检查到端口%d已启用，"+serverName+"服务运行中.", defaultRedisPort);
+        }
+
+        //判定eureka没启动
+        if (unUsableEureka){
+            serverName="eureka";
+            System.err.printf("检查到端口%d 未启用，判断"+serverName+"服务器没有启动，本服务无法使用，故退出%n", defaultEurekaPort);
+            systemExit = true;
+        }else{
+            serverName="eureka";
+            System.out.printf("检查到端口%d已启用，"+serverName+"服务运行中.", defaultEurekaPort);
+        }
+
+        if(systemExit){
+            System.exit(1);
+        }
+
+
+    }
+
+
+
 }
