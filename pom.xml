@@ -58,7 +58,8 @@
         <module>data-service</module>
         <module>third-part-index-data-proj</module>
         <module>util-boot</module>
-
+        <module>the-code-service</module>
+        <module>the-json-service</module>
     </modules>
 
 </project>

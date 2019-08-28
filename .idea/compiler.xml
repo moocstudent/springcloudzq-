@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="data-service" />
         <module name="eureka-server" />
+        <module name="the-code-service" />
+        <module name="the-json-service" />
         <module name="third-part-index-data-proj" />
         <module name="util-boot" />
       </profile>

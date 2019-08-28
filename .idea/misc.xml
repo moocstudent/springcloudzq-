@@ -13,6 +13,8 @@
         <option value="$PROJECT_DIR$/utils-boot/pom.xml" />
         <option value="$PROJECT_DIR$/util-boot/pom.xml" />
         <option value="$PROJECT_DIR$/third-part-index-data-proj/pom.xml" />
+        <option value="$PROJECT_DIR$/the-code-service/pom.xml" />
+        <option value="$PROJECT_DIR$/the-json-service/pom.xml" />
       </list>
     </option>
   </component>

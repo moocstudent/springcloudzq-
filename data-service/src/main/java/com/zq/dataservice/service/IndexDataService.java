@@ -1,9 +1,7 @@
 package com.zq.dataservice.service;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.zq.dataservice.bean.Index;
 import com.zq.dataservice.bean.IndexData;
 import com.zq.dataservice.util.MapListUtil;
 import com.zq.dataservice.util.SpringContextUtil;

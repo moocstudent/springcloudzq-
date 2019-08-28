@@ -2,10 +2,8 @@ package com.zq.dataservice.service;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.convert.Convert;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zq.dataservice.bean.Index;
-import com.zq.dataservice.bean.IndexData;
 import com.zq.dataservice.util.MapListUtil;
 import com.zq.dataservice.util.SpringContextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
