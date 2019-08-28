@@ -60,6 +60,7 @@
         <module>util-boot</module>
         <module>the-code-service</module>
         <module>the-json-service</module>
+        <module>zuul-service</module>
     </modules>
 
 </project>

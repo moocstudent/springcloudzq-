@@ -12,6 +12,7 @@
         <module name="the-json-service" />
         <module name="third-part-index-data-proj" />
         <module name="util-boot" />
+        <module name="zuul-service" />
       </profile>
     </annotationProcessing>
   </component>

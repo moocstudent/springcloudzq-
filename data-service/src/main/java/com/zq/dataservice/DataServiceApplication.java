@@ -15,12 +15,11 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 public class DataServiceApplication {
 
     public static void main(String[] args) {
-        int port = PortUtil.setPort(args, 2, "2秒输入新端口,或者启动时后缀 port=****, 默认8001端口.", 8001);
+
         int redisPort = 6379;
-        if (NetUtil.isUsableLocalPort(redisPort)) {
-            System.err.printf("检查到端口%d 未启用，判断 redis 服务器没有启动，本服务无法使用，故退出%n", redisPort);
-            System.exit(1);
-        }
+        PortUtil.checkPort(redisPort);
+        int port = PortUtil.setPort(args, 2, "2秒输入新端口,或者启动时后缀 port=****, 默认8001端口.", 8001);
+
         new SpringApplicationBuilder(DataServiceApplication.class).properties("server.port="+port).run(args);
 //        SpringApplication.run(DataServiceApplication.class, args);
     }
